@@ -203,7 +203,7 @@ void Modify()
 }
 void Topper()
 {
-   int top,count;
+   int count;
    int top=0;
    for (int i = 0; i < 100; i++)
    {
@@ -229,7 +229,7 @@ void Topper()
 }
 void Loser()
 {
-   int top,count;
+   int count;
    int top=100;
    for (int i = 0; i < 100; i++)
    {
@@ -273,39 +273,47 @@ int Menu()
 
 int main()
 {
-   int choice;
-   choice=Menu();
-   switch (choice)
-   {
-   case 1:
-      Addstudent();
-      break;
-   case 2:
-      Search();
-      break;
-   case 3:
-      Cpercentage();
-      break;
-   case 4:
-      Display();
-      break;
-   case 5:
-      Delete();
-      break;
-   case 6:
-      Modify();
-      break;
-   case 7:
-      Topper();
-      break;
-   case 8:
-      Loser();
-      break;
-   default:
-      cout<<"Invalid Input!!";
-      break;
-   }
 
-   
+   int choice;
+   int use = 1;
+   while (use == 1)
+   {
+      choice=Menu();
+      switch (choice)
+      {
+      case 1:
+         Addstudent();
+         break;
+      case 2:
+         Search();
+         break;
+      case 3:
+         Cpercentage();
+         break;
+      case 4:
+         Display();
+         break;
+      case 5:
+         Delete();
+         break;
+      case 6:
+         Modify();
+         break;
+      case 7:
+         Topper();
+         break;
+      case 8:
+         Loser();
+         break;
+      default:
+         cout<<"Invalid Input!!";
+         break;
+      }
+      cout<<"Want to use again ?\n";
+      cout<<"1--------> Yes\n";
+      cout<<"2--------> No\n";
+      cout<<"\nEnter your choice : ";
+      cin>>use;
+   }
    return 0;
 }
