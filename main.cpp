@@ -10,7 +10,7 @@ struct Student
    int Phymarks;
    int Chemarks;
    int Totalmarks;
-   int percentage;
+   float percentage;
    bool occupied=false;
 };
 Student student[100];
@@ -19,7 +19,8 @@ Student student[100];
 void Addstudent()
 {
    string name;
-   int roll,Che,Phy,Maths,Total,percent,choice;
+   int roll,Che,Phy,Maths,Total,choice;
+   float percent;
    for (int i = 0; i < 100; i++)
    {
       if (student[i].occupied==true)
@@ -39,11 +40,11 @@ void Addstudent()
             {
                cout<<"\n Existing student with this roll no.\n";
                break;
-               
+                student[i].rollno=roll;
             } 
          }  
       }
-      student[i].rollno=roll;
+     
       cout<<"Marks in Maths : ";
       cin>>Maths;
       student[i].Mathmarks=Maths;
@@ -121,7 +122,7 @@ void Display()
 }
 void Cpercentage()
 {
-   int final;
+   float final;
    int Percentage = 0;
    int count=0;
      for (int i = 0; i < 100; i++)
@@ -156,7 +157,9 @@ void Delete()
 }
 void Modify()
 {
-   int rollno,choice,name,roll,Maths,Phy,Che;
+   int rollno,choice,roll,Maths,Phy,Che,percent;
+   float total;
+   string name;
    cout<<"\nEnter the roll no. of student : ";
    cin>>rollno;
    for (int i = 0; i < 100; i++)
@@ -189,16 +192,22 @@ void Modify()
                cout<<"Marks in Maths : ";
                cin>>Maths;
                student[i].Mathmarks=Maths;
+               total=student[i].Mathmarks+student[i].Phymarks+student[i].Chemarks;
+               percent=total/3;
                break;
             case 4:
                cout<<"Marks in Physics : ";
                cin>>Phy;
                student[i].Phymarks=Phy;
+               total=student[i].Mathmarks+student[i].Phymarks+student[i].Chemarks;
+               percent=total/3;
                break;
             case 5:
                cout<<"Marks in Chemistry : ";
                cin>>Che;
                student[i].Chemarks=Che;
+               total=student[i].Mathmarks+student[i].Phymarks+student[i].Chemarks;
+               percent=total/3;
                break;
             default:
                cout<<"Invalid input!";
