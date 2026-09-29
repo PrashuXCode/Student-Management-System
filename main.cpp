@@ -273,6 +273,39 @@ int Menu()
 
 int main()
 {
+   int choice;
+   choice=Menu();
+   switch (choice)
+   {
+   case 1:
+      Addstudent();
+      break;
+   case 2:
+      Search();
+      break;
+   case 3:
+      Cpercentage();
+      break;
+   case 4:
+      Display();
+      break;
+   case 5:
+      Delete();
+      break;
+   case 6:
+      Modify();
+      break;
+   case 7:
+      Topper();
+      break;
+   case 8:
+      Loser();
+      break;
+   default:
+      cout<<"Invalid Input!!";
+      break;
+   }
+
    
    return 0;
 }
