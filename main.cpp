@@ -37,11 +37,13 @@ void Addstudent()
          {
             if (student[i].rollno==roll)
             {
+               cout<<"\n Existing student with this roll no.\n";
                break;
-               student[i].rollno=roll;
+               
             } 
          }  
       }
+      student[i].rollno=roll;
       cout<<"Marks in Maths : ";
       cin>>Maths;
       student[i].Mathmarks=Maths;
@@ -59,10 +61,10 @@ void Addstudent()
 
       cout<<"\n\nStudent Data Added Successfully!!\n\n";
       
-      cout<<"Want to add another sudent ? ";
-      cout<<"1------> Yes";
-      cout<<"2------> No";
-      cout<<"Enter your choice : ";
+      cout<<"\nWant to add another sudent ? ";
+      cout<<"\n1------> Yes";
+      cout<<"\n2------> No";
+      cout<<"\n\nEnter your choice : ";
       cin>>choice;
       if (choice != 1)
       {
@@ -73,14 +75,14 @@ void Addstudent()
 
 void Search()
 {
-   int rollno;
-   cout<<"Enter the roll no. of the student : ";
-   cin>>rollno;
+   int roll;
+   cout<<"\nEnter the roll no. of the student : ";
+   cin>>roll;
    for (int i = 0; i < 100; i++)
    {
       if (student[i].occupied==true)
       {
-         if (student[i].rollno==rollno)
+         if (student[i].rollno==roll)
          {
             cout<<"\n----------------------------";
             cout<<"\n      Student Details       ";
@@ -91,7 +93,7 @@ void Search()
             cout<<"Physics Marks : "<<student[i].Phymarks<<endl;
             cout<<"Chemistry Marks : "<<student[i].Chemarks<<endl;
             cout<<"Total Marks : "<<student[i].Totalmarks<<endl;
-            cout<<"Percentage : "<<student[i].percentage<<endl;
+            cout<<"Percentage : "<<student[i].percentage<<"%"<<endl;
          }
       }
    }
@@ -99,7 +101,7 @@ void Search()
 
 void Display()
 {
-   cout<<"-----------------------------\n";
+   cout<<"\n-----------------------------\n";
    cout<<"       STUDENT DETAILS       \n";
    cout<<"-----------------------------\n\n";      
    for (int i = 0; i < 100; i++)
@@ -112,7 +114,7 @@ void Display()
          cout<<"Physics Marks : "<<student[i].Phymarks<<endl;
          cout<<"Chemistry Marks : "<<student[i].Chemarks<<endl;
          cout<<"Total Marks : "<<student[i].Totalmarks<<endl;
-         cout<<"Percentage : "<<student[i].percentage<<endl;      
+         cout<<"Percentage : "<<student[i].percentage<<"%"<<endl;      
       } 
    }
    
@@ -132,12 +134,12 @@ void Cpercentage()
       
     }
     final=Percentage/count;
-    cout<<"Average percentage of the class is : "<<final;
+    cout<<"\nAverage percentage of the class is : "<<final<<"%"<<endl;
 }
 void Delete()
 {
    int rollno;
-   cout<<"Enter the roll no. of student : ";
+   cout<<"\nEnter the roll no. of student : ";
    cin>>rollno;
    for (int i = 0; i < 100; i++)
    {
@@ -155,7 +157,7 @@ void Delete()
 void Modify()
 {
    int rollno,choice,name,roll,Maths,Phy,Che;
-   cout<<"Enter the roll no. of student : ";
+   cout<<"\nEnter the roll no. of student : ";
    cin>>rollno;
    for (int i = 0; i < 100; i++)
    {
@@ -163,7 +165,7 @@ void Modify()
       {
          if (student[i].rollno==rollno)
          {
-            cout<<"Select the data you want to change\n";
+            cout<<"\n\nSelect the data you want to change\n";
             cout<<"1------>  Name\n";
             cout<<"2------>  Roll no.\n";
             cout<<"3------>  Math's marks\n";
@@ -176,22 +178,27 @@ void Modify()
             case 1 :
                cout<<"Name of the student : ";
                cin>>name;
+               student[i].name=name;
                break;
             case 2:
                cout<<"Roll no. of the student : ";
                cin>>roll;
+               student[i].rollno=roll;
                break;
             case 3:
                cout<<"Marks in Maths : ";
                cin>>Maths;
+               student[i].Mathmarks=Maths;
                break;
             case 4:
                cout<<"Marks in Physics : ";
                cin>>Phy;
+               student[i].Phymarks=Phy;
                break;
             case 5:
                cout<<"Marks in Chemistry : ";
                cin>>Che;
+               student[i].Chemarks=Che;
                break;
             default:
                cout<<"Invalid input!";
@@ -223,7 +230,7 @@ void Topper()
    cout<<"Physics Marks : "<<student[count].Phymarks<<endl;
    cout<<"Chemistry Marks : "<<student[count].Chemarks<<endl;
    cout<<"Total Marks : "<<student[count].Totalmarks<<endl;
-   cout<<"Percentage : "<<student[count].percentage<<endl; 
+   cout<<"Percentage : "<<student[count].percentage<<"%"<<endl; 
 
 
 }
@@ -249,7 +256,7 @@ void Loser()
    cout<<"Physics Marks : "<<student[count].Phymarks<<endl;
    cout<<"Chemistry Marks : "<<student[count].Chemarks<<endl;
    cout<<"Total Marks : "<<student[count].Totalmarks<<endl;
-   cout<<"Percentage : "<<student[count].percentage<<endl; 
+   cout<<"Percentage : "<<student[count].percentage<<"%"<<endl; 
 
 }
 int Menu()
@@ -309,7 +316,7 @@ int main()
          cout<<"Invalid Input!!";
          break;
       }
-      cout<<"Want to use again ?\n";
+      cout<<"\n\nWant to use again ?\n";
       cout<<"1--------> Yes\n";
       cout<<"2--------> No\n";
       cout<<"\nEnter your choice : ";
