@@ -32,17 +32,21 @@ void Addstudent()
       student[i].name=name;
       cout<<"Roll no. of the student : ";
       cin>>roll;
-      for (int i = 0; i < 100; i++)
+      for (int j = 0; j < 100; i++)
       {
-         if (student[i].occupied==true)
+         if (student[j].occupied==true)
          {
-            if (student[i].rollno==roll)
+            if (student[j].rollno==roll)
             {
                cout<<"\n Existing student with this roll no.\n";
                break;
-                student[i].rollno=roll;
+               
             } 
-         }  
+         }else if (student[j].occupied==false)
+         {
+            student[i].rollno=roll;
+         }
+           
       }
      
       cout<<"Marks in Maths : ";
